@@ -52,12 +52,12 @@ int main(int argc, char *argv[]) {
           if ((value == 83281) && (state == true)) {
             state = false;
             printf("Switched B On\n");
-            sleep(10);
+            sleep(2);
             state = true;
           } else if ((value == 83284) && (state == true)) {
             state = false;
             printf("Switched B Off\n");
-            sleep(10);
+            sleep(2);
             state = true;
           }
         }
