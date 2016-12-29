@@ -48,6 +48,11 @@ int main(int argc, char *argv[]) {
         } else {    
    
           printf("Received %i\n", mySwitch.getReceivedValue() );
+          if (value == 4477265) {
+            printf("Switched B On");
+          } else if (value == 4477268) {
+            printf("Switched B Off");
+          }
         }
     
         mySwitch.resetAvailable();
