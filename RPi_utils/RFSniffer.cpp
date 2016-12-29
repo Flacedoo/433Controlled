@@ -11,6 +11,7 @@
 #include "../rc-switch/RCSwitch.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
      
      
 RCSwitch mySwitch;
@@ -35,23 +36,29 @@ int main(int argc, char *argv[]) {
      mySwitch = RCSwitch();
      if (pulseLength != 0) mySwitch.setPulseLength(pulseLength);
      mySwitch.enableReceive(PIN);  // Receiver on interrupt 0 => that is pin #2
-     
+     bool state = true;
     
      while(1) {
   
       if (mySwitch.available()) {
     
         int value = mySwitch.getReceivedValue();
-    
+
         if (value == 0) {
           printf("Unknown encoding\n");
         } else {    
    
           printf("Received %i\n", mySwitch.getReceivedValue() );
-          if (value == 4477265) {
-            printf("Switched B On");
-          } else if (value == 4477268) {
-            printf("Switched B Off");
+          if ((value == 83281) && (state == true)) {
+            state = false;
+            printf("Switched B On\n");
+            sleep(10);
+            state = true;
+          } else if ((value == 83284) && (state == true)) {
+            state = false;
+            printf("Switched B Off\n");
+            sleep(10);
+            state = true;
           }
         }
     
