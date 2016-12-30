@@ -33,18 +33,18 @@ int main(int argc, char *argv[]) {
      try {
      	cfg.readFile("../433Controlled.conf");
      } catch (const FileIOException &fioex) {
-     	printf("I/O error while reading file.\n");
+     	std::cerr << "I/O error while reading file." << std::endl;
      	return(EXIT_FAILURE);
      } catch (const ParseException &pex) {
-     	printf("Parse error at "+pex.getFile()+":"+pex.getLine()+" - "+pex.getError()+"\n");
-     	return (EXIT_FAILURE);
+		std::cerr << "Parse error at " << pex.getFile() << ":" << pex.getLine()
+              << " - " << pex.getError() << std::endl;     	return (EXIT_FAILURE);
      }
 
      try {
      	string name = cfg.lookup("execAOn");
-     	printf(name+"\n");
+     	cout << "Store name: " << name << endl << endl;
      } catch (const SettingNotFoundException &nfex) {
-     	printf("No 'execAOn' setting in configuration file. \n");
+     	cerr << "No 'name' setting in configuration file." << endl;
      }
 
      int PIN = 2;
