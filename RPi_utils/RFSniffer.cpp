@@ -12,7 +12,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-     
+#include <libconfig.h++>  
+
+using namespace std;
+using namespace linconfig;
+
      
 RCSwitch mySwitch;
  
