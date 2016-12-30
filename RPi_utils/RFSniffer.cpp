@@ -9,6 +9,9 @@
 */
 
 #include "../rc-switch/RCSwitch.h"
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
