@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
             state = true;
           } else if ((value == 83284) && (state == true)) {
             state = false;
-            system();
+            system("/home/pi/./testscripts.sh");
             // printf("Switched B Off\n");
             sleep(2);
             state = true;
