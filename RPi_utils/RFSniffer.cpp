@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <libconfig.h++>  
+#include "../lib/libconfig.h++"  
 
 using namespace std;
 using namespace linconfig;
