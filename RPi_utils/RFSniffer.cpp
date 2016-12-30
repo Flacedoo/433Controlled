@@ -27,6 +27,26 @@ int main(int argc, char *argv[]) {
      // This pin is not the first pin on the RPi GPIO header!
      // Consult https://projects.drogon.net/raspberry-pi/wiringpi/pins/
      // for more information.
+
+     Config cfg;
+
+     try {
+     	cfg.readFile("../433Controlled.conf");
+     } catch (const FileIOException &fioex) {
+     	printf("I/O error while reading file.\n");
+     	return(EXIT_FAILURE);
+     } catch (const ParseException &pex) {
+     	printf("Parse error at "+pex.getFile()+":"+pex.getLine()+" - "+pex.getError()+"\n");
+     	return (EXIT_FAILURE);
+     }
+
+     try {
+     	string name = cfg.lookup("execAOn");
+     	printf(name+"\n");
+     } catch (const SettingNotFoundException &nfex) {
+     	printf("No 'execAOn' setting in configuration file. \n");
+     }
+
      int PIN = 2;
      
      if(wiringPiSetup() == -1) {
