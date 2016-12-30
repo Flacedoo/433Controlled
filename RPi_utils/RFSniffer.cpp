@@ -15,7 +15,7 @@
 #include "../lib/libconfig.h++"  
 
 using namespace std;
-using namespace linconfig;
+using namespace libconfig;
 
      
 RCSwitch mySwitch;
