@@ -51,13 +51,13 @@ int main(int argc, char *argv[]) {
           printf("Received %i\n", mySwitch.getReceivedValue() );
           if ((value == 83281) && (state == true)) {
             state = false;
-            system("/home/pi/./testscripts.sh");
+            system("/home/pi/./testscript.sh");
             // printf("Switched B On\n");
             sleep(2);
             state = true;
           } else if ((value == 83284) && (state == true)) {
             state = false;
-            system("/home/pi/./testscripts.sh");
+            system("/home/pi/./testscript.sh");
             // printf("Switched B Off\n");
             sleep(2);
             state = true;
